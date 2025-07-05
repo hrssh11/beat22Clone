@@ -103,8 +103,22 @@
   background-color: $body-background !important;
 }
 
+.loding {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
 @media (max-width: 830px) {
   .filter-contianer {
     display: none;
   }
+}
+h4 {
+  background: linear-gradient(169deg, #7000ff 0%, #7a00ff 31.77%, #8f00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
