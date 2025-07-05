@@ -31,6 +31,7 @@ import { ApiService } from '../../service/api.service';
   styleUrl: './listing-beat.component.scss',
 })
 export class ListingBeatComponent implements OnInit {
+  loading: boolean = false;
   constructor(private apiService: ApiService) {}
 
   beatsData: any[] = [];
@@ -67,8 +68,10 @@ export class ListingBeatComponent implements OnInit {
   }
 
   getBeats() {
+    this.loading = true;
     this.apiService.getTrendingPlaylists().subscribe((data) => {
       this.beatsData = data?.playlists[0]?.beats || [];
+      this.loading = false;
       console.log('Beats data length:', this.beatsData);
     });
   }
