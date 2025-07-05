@@ -1,0 +1,35 @@
+<div class="dropdown-wrapper">
+  <div class="search-copntainer">
+    <beat22-icon [name]="'search'" [color]="'white'"></beat22-icon>
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search top beat"
+      [(ngModel)]="searchTerm"
+    />
+  </div>
+  <div
+    class="dropdown-trigger"
+    (click)="togglePanel($event); $event.stopPropagation()"
+  >
+    {{ selectedCategory }}
+    <beat22-icon
+      [name]="isOpen ? 'chevron-up' : 'chevron-down'"
+      [color]="'white'"
+      [height]="16"
+      [width]="16"
+    ></beat22-icon>
+  </div>
+  <beat22-dropdown-panel #dropdownPanel>
+    <div class="dropdown-options">
+      <div
+        *ngFor="let category of categories; let i = index"
+        class="dropdown-option"
+        [class.selected]="category === selectedCategory"
+        (click)="selectCategory(category)"
+      >
+        {{ category }}
+      </div>
+    </div>
+  </beat22-dropdown-panel>
+</div>

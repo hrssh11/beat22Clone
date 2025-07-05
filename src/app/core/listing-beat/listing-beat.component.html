@@ -1,0 +1,86 @@
+<div class="listing-beat-wrapper">
+  <div class="listing-beat-container">
+    <div class="listing-beat-header">
+      <h3 class="listing-beat-title">Explore <span>Beats</span></h3>
+      <div class="listing-beat-refresh">
+        <beat22-button [style]="buttonStyle.SECONDARY">Refresh</beat22-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="listing-beat-categories">
+    @for (item of chipsCatgory; track $index;) {
+    <beat22-chips
+      (click)="setActiveCategory(item)"
+      [label]="item.label"
+      [style]="item.style"
+      [active]="item.active || false"
+    ></beat22-chips>
+    }
+  </div>
+
+  <div class="search-input-container">
+    <div class="search-input">
+      <beat22-text-input
+        [iconLeft]="'search'"
+        [placeholder]="'Search top beats'"
+        [iconColor]="'white'"
+      ></beat22-text-input>
+    </div>
+
+    <div class="toggle-buttons">
+      <beat22-icon
+        [ngClass]="{ 'toggle-active': selectedIcon === 'list' }"
+        [name]="'menu-2'"
+        [color]="'list' === selectedIcon ? 'white' : '#959595'"
+        [height]="19"
+        [width]="19"
+        (click)="selectedIcon = 'list'"
+      >
+      </beat22-icon>
+      <beat22-icon
+        [ngClass]="{ 'toggle-active': selectedIcon === 'layout-grid' }"
+        [name]="'layout-grid'"
+        [color]="selectedIcon === 'layout-grid' ? 'white' : '#959595'"
+        [height]="19"
+        [width]="19"
+        (click)="selectedIcon = 'layout-grid'"
+      >
+      </beat22-icon>
+    </div>
+  </div>
+
+  <div class="filter-contianer">
+    <div class="wrapper">
+      <span class="filter-item-label">Filters : </span>
+      @for( item of filterList ;track $index;){
+      <div (click)="toggleCheckBoxDropdown($event)" class="item">
+        <beat22-filter-search-dropdown [label]="item.label">
+        </beat22-filter-search-dropdown>
+      </div>
+      }
+    </div>
+    <div class="wrapper">
+      <span class="filter-item-label">Sort By :</span>
+      <beat22-filter-search-dropdown [label]="'Latest'">
+      </beat22-filter-search-dropdown>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="beatsData.length >= 0">
+  @for (item of beatsData; track $index) {
+
+  <beat22-card-action
+    [artist]="(item?.used_samples)![0]?.artist_name"
+    [bpm]="item?.tempo"
+    [title]="item?.title"
+    [tags]="item?.tag || []"
+    [key]="getkey(item?.key) || ''"
+    [image]="item?.cover_picture || ''"
+    [price]="item?.prices[0]?.final_price"
+    [isVerified]="item?.producer?.is_verified || false"
+  >
+  </beat22-card-action>
+  }
+</div>

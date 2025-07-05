@@ -1,0 +1,47 @@
+<!-- Desktop View -->
+<div class="desktop">
+  <div class="wrapper">
+    <div class="navbar-container">
+      <div class="title-wrapper">
+        <img
+          src="../../../assets/logo/beat22.png"
+          alt="beat22 logo"
+          height="32"
+          width="126"
+        />
+        <app-searchbar-with-dropdown></app-searchbar-with-dropdown>
+      </div>
+      <div class="action-container">
+        <beat22-button class="sign-in" [style]="buttonStyle.TERTIARY">
+          Sign In
+        </beat22-button>
+        <beat22-button [style]="buttonStyle.PRIMARY">
+          Start Selling
+        </beat22-button>
+      </div>
+    </div>
+    <div class="sub-headings">
+      <a>Beat</a>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile View -->
+<div class="mobile">
+  <div class="mobile-wrapper">
+    <div class="title-wrapper">
+      <img
+        src="../../../assets/logo/beat22.png"
+        alt="beat22 logo"
+        height="32"
+        width="126"
+      />
+    </div>
+    <div>
+      <beat22-button [style]="buttonStyle.PRIMARY">
+        Start Selling
+      </beat22-button>
+    </div>
+  </div>
+  <app-searchbar-with-dropdown></app-searchbar-with-dropdown>
+</div>

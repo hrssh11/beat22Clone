@@ -1,0 +1,11 @@
+<div
+  [class.primary]="style === 'PRIMARY'"
+  [class.secondary]="style === 'SECONDARY'"
+  [class.tertiary]="style === 'TERTIARY'"
+>
+  @if (iconName) {
+  <beat22-icon [name]="iconName" [height]="16" [width]="16" [color]="iconColor">
+  </beat22-icon>
+  }
+  <ng-content></ng-content>
+</div>

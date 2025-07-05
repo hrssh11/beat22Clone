@@ -1,0 +1,110 @@
+@import "../../../styles/color.scss";
+@import "../../../styles/variable.scss";
+.listing-beat-container {
+  padding: 30px 0px;
+  .listing-beat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .listing-beat-title {
+      color: white;
+      span {
+        color: #a198ff;
+      }
+    }
+  }
+}
+
+.listing-beat-categories {
+  display: flex;
+  align-items: center;
+}
+
+.search-input-container {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  align-items: center;
+
+  .search-input {
+    width: 21%;
+  }
+  .toggle-buttons {
+    height: 34px;
+    width: 74px;
+    border-radius: 45px;
+    border: unset;
+    background: #2c2c2c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    beat22-icon {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+  }
+  .toggle-buttons .toggle-active {
+    border-radius: 45px;
+    height: 100%;
+    background-color: #414141;
+    display: flex;
+    align-items: center;
+    transition: all 0.4s ease-in-out;
+  }
+}
+
+.filter-contianer {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 26px;
+  width: 100%;
+  align-items: center;
+  color: $grey-700;
+  font-size: 0.75rem;
+  margin-bottom: 35px;
+  justify-content: space-between;
+  .filter-item-label {
+    opacity: 0.5;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .item {
+    cursor: pointer;
+    display: flex;
+    gap: 16px;
+  }
+}
+
+::ng-deep .p-placeholder {
+  display: none !important;
+}
+
+::ng-deep .p-multiselect-label {
+  display: none !important;
+}
+::ng-deep .p-multiselect-trigger {
+  background-color: $body-background !important;
+  border: 0px !important;
+  width: 0px !important;
+}
+
+::ng-deep .p-multiselect {
+  border: 0px !important;
+  border-radius: 0px !important;
+  background-color: $body-background !important;
+}
+
+@media (max-width: 830px) {
+  .filter-contianer {
+    display: none;
+  }
+}

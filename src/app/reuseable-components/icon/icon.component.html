@@ -1,0 +1,13 @@
+<div
+  class="s73-icon"
+  [style.width.px]="width || size"
+  [style.height.px]="height || size"
+  [style.color]="color"
+>
+  <i-tabler
+    class="itabler-icon"
+    [name]="name"
+    [style.width.px]="isDefaultTheme ? width || size : iconWidth"
+    [style.height.px]="isDefaultTheme ? height || size : iconHeight"
+  ></i-tabler>
+</div>

@@ -1,0 +1,69 @@
+:host {
+  display: inline-block;
+  user-select: none;
+}
+
+.primary {
+  border-radius: 4.444px;
+  background: linear-gradient(169deg, #7000ff 0%, #7a00ff 31.77%, #8f00ff 100%);
+  border: unset;
+  min-width: 80px;
+  color: #fff !important;
+  height: 35px;
+  font-size: 0.75rem;
+  font-family: Manrope, sans-serif !important;
+  font-weight: 700;
+  font-style: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tertiary {
+  display: inline-block;
+  padding: 8px 10px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 19px;
+  text-align: left;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+}
+
+.tertiary:after {
+  display: block;
+  content: "";
+  margin-top: 5px;
+  border-bottom: solid 5px #fff;
+  border-width: 2px 2px 2px 2px;
+  transform: scaleX(0);
+  transition: transform 300ms ease-in-out;
+}
+
+.tertiary:hover:after {
+  transform: scaleX(1);
+}
+
+.secondary {
+  width: 101px;
+  height: 39px;
+  font-family: inter-medium, sans-serif !important;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d49cff;
+  border-radius: 42px;
+  border: 1px solid #d094ff;
+  cursor: pointer;
+}
+beat22-icon {
+  padding-right: 5px;
+}

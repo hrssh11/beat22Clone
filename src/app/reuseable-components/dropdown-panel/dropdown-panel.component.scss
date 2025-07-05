@@ -1,0 +1,12 @@
+::ng-deep {
+  .p-overlaypanel {
+    &:before,
+    &:after {
+      display: none;
+    }
+
+    .p-overlaypanel-content {
+      padding: 0;
+    }
+  }
+}

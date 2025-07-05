@@ -1,0 +1,40 @@
+// Spacing Primitives
+$spacing-1: 0px;
+$spacing-2: 2px;
+$spacing-3: 4px;
+$spacing-4: 8px;
+$spacing-5: 12px;
+$spacing-6: 16px;
+$spacing-7: 20px;
+$spacing-8: 24px;
+$spacing-9: 28px;
+$spacing-10: 32px;
+$spacing-11: 36px;
+$spacing-12: 40px;
+
+// Horizontal spacing
+$spacer-xs: $spacing-3;
+$spacer-sm: $spacing-4;
+$spacer-md: $spacing-5;
+$spacer-lg: $spacing-6;
+$spacer-xl: $spacing-8;
+$spacer-2xl: $spacing-10;
+
+// Vertical spacing
+$breaker-xs: $spacing-3;
+$breaker-sm: $spacing-4;
+$breaker-md: $spacing-6;
+$breaker-lg: $spacing-8;
+$breaker-xl: $spacing-10;
+$breaker-2xl: $spacing-12;
+
+// Border Radius
+$border-radius-base: 4px; // TODO: use $radius-sm instead
+
+$radius-sm: 4px;
+$radius-md: 6px;
+$radius-lg: 8px;
+
+$avatar-size-large: 40px;
+$avatar-size-medium: 32px;
+$avatar-size-small: 24px;

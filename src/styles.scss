@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./styles/color.scss";
+
+body {
+  background-color: $body-background;
+  padding-left: 75px;
+  padding-right: 75px;
+  font-family: inter-regular, sans-serif !important;
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+}
+
+@media (max-width: 830px) {
+  body {
+    width: 100%;
+  }
+}

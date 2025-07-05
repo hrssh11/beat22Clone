@@ -1,0 +1,64 @@
+@import "../../../styles/variable.scss";
+@import "../../../styles/color.scss";
+
+:host ::ng-deep itabler-icon {
+  svg {
+    pointer-events: none;
+  }
+}
+
+$size: 24px;
+.s73-icon {
+  display: flex;
+  width: $size;
+  height: $size;
+
+  align-items: center;
+  justify-content: center;
+
+  &--primary,
+  &--primary-square,
+  &--secondary-square,
+  &--yellow-square,
+  &--primary-round {
+    i-tabler {
+      width: $size - $spacing-3;
+      height: $size - $spacing-3;
+    }
+  }
+
+  &--primary {
+    padding: $spacing-2;
+    border-radius: $radius-sm;
+    color: $grey-1000;
+  }
+
+  &--primary-square {
+    padding: $spacing-2;
+    border-radius: $radius-sm;
+    background: $grey-200;
+    color: $grey-1000;
+  }
+  &--secondary-square {
+    padding: $spacing-2;
+    border-radius: $radius-sm;
+    background: var(--s73-color-400);
+    color: var(--s73-color-900);
+  }
+  &--yellow-square {
+    padding: $spacing-2;
+    border-radius: $radius-sm;
+    background: $yellow-500;
+    color: $yellow-1000;
+  }
+  &--primary-round {
+    padding: $spacing-2;
+    background: $grey-200;
+    border-radius: 50%;
+    color: var(--neutral-dark-primary);
+  }
+
+  .itabler-icon {
+    display: flex;
+  }
+}

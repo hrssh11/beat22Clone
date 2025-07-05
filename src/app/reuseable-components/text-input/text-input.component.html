@@ -1,0 +1,48 @@
+<div
+  class="text-input"
+  [class.text-input--disabled]="disabled"
+  [class.text-input--error]="error || errorMessage"
+  (click)="inputClickHandler($event)"
+>
+  <label class="text-input__label" *ngIf="label" [for]="id">
+    {{ label }}
+    <span *ngIf="required" class="text-input__required-star"> * </span>
+  </label>
+
+  <div
+    class="text-input__input-wrapper"
+    [class.text-input__input-wrapper--icon-right]="
+      iconRight || error || errorMessage
+    "
+    [class.text-input__input-wrapper--icon-left]="iconLeft"
+  >
+    <input
+      autocomplete="off"
+      [id]="id"
+      class="text-input__input"
+      type="text"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [(ngModel)]="value"
+      (ngModelChange)="onChange($event)"
+      (input)="emitValueChange($event)"
+      (blur)="onblur.emit($event)"
+      (focus)="onfocus.emit($event)"
+      [readOnly]="readOnly"
+    />
+    <beat22-icon
+      *ngIf="iconLeft || iconRight || error"
+      [name]="iconLeft || iconRight"
+      class="text-input__icon"
+      [height]="20"
+      [width]="20"
+      [color]="disabled ? '#BBC1CB' : iconColor"
+    ></beat22-icon>
+  </div>
+  <span class="text-input__hint" *ngIf="hint">
+    {{ hint }}
+  </span>
+  <span class="text-input__error-message" *ngIf="error && errorMessage">
+    {{ errorMessage }}
+  </span>
+</div>

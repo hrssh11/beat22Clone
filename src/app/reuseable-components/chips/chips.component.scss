@@ -1,0 +1,54 @@
+:host {
+  display: inline-flex;
+}
+.chip {
+  $self: &;
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  padding: 6px 19px;
+  background: #262626;
+  border: 1px solid #383838;
+  font-size: 0.75rem;
+  margin-right: 15px;
+  cursor: pointer;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+
+  &--active {
+    background-color: gray !important;
+    #{$self}__label {
+      color: gray !important;
+    }
+  }
+
+  &__label {
+    color: #fff;
+    order: 2;
+  }
+}
+
+.orange {
+  &:hover,
+  &--active {
+    background: linear-gradient(90deg, #ff7e15 0%, #ffca51 100%);
+  }
+}
+.gradiant-pink {
+  &:hover,
+  &--active {
+    background: linear-gradient(90deg, #6027fb 0%, #f733dd 100%);
+  }
+}
+.pink {
+  &:hover,
+  &--active {
+    background: linear-gradient(110deg, #7000ff 36.5%, #8f00ff 93.9%);
+  }
+}
+.sky-blue {
+  &:hover,
+  &--active {
+    background: linear-gradient(90deg, #093dff -54.02%, #60c8ff 137.35%);
+  }
+}
