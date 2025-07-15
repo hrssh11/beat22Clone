@@ -19,6 +19,15 @@
 .listing-beat-categories {
   display: flex;
   align-items: center;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.listing-beat-categories::-webkit-scrollbar {
+  display: none !important;
 }
 
 .search-input-container {

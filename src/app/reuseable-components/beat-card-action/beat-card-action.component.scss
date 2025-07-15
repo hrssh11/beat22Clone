@@ -109,3 +109,8 @@
     display: none;
   }
 }
+@media (max-width: 830px) {
+  .play-btn {
+    display: none !important;
+  }
+}
