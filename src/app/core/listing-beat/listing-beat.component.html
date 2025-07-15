@@ -72,6 +72,7 @@
   @for (item of beatsData; track $index) {
 
   <beat22-card-action
+    (getSelectRowData)="getPopupData($event)"
     [artist]="(item?.used_samples)![0]?.artist_name"
     [bpm]="item?.tempo"
     [title]="item?.title"
@@ -90,3 +91,118 @@
   <h4>Loading...</h4>
 </div>
 }
+
+<!-- model of price -->
+
+<ng-container *ngIf="isOpen">
+  <div id="priceModel">
+    <div #modal (click)="onBackdropClick($event)" class="blur-overlay"></div>
+    <div class="modal">
+      <div style="display: flex; justify-content: flex-end; cursor: pointer">
+        <beat22-icon
+          (click)="isOpen = false"
+          [name]="'x'"
+          [height]="19"
+          [width]="19"
+          (click)="selectedIcon = 'list'"
+        ></beat22-icon>
+      </div>
+      <div style="display: flex; gap: 25px">
+        <div class="left-panel">
+          <h3>Select License Type</h3>
+          <p>Understand Licensing here!</p>
+          <beat22-button [style]="buttonStyle.PRIMARY">WAV</beat22-button>
+          <beat22-button [style]="buttonStyle.PRIMARY"
+            >WAV + STEMS</beat22-button
+          >
+          <beat22-button [style]="buttonStyle.PRIMARY">EXCLUSIVE</beat22-button>
+        </div>
+
+        <div class="right-panel">
+          <div class="track-info">
+            <img [src]="popUpData.image" alt="Track Art" />
+            <div>
+              <strong>{{ popUpData!.title || "N/a" }}</strong
+              ><br />
+              <small>{{ popUpData!.artist || "N/a" }}</small>
+            </div>
+          </div>
+
+          <div class="details">
+            <span
+              ><strong>License Usage :</strong> Unlimited Audio Streaming</span
+            >
+            <span><strong>Format & Files :</strong> WAV File</span>
+            <span><strong>Nature :</strong> Non-Exclusive</span>
+            <span><strong>Distribution :</strong> Unlimited Copies</span>
+            <div class="show-all">Show all</div>
+          </div>
+          <div style="display: flex; justify-content: end">
+            <beat22-button
+              [style]="buttonStyle.PRIMARY"
+              [iconName]="'shopping-cart'"
+              >{{ popUpData.price || "N/a" }}</beat22-button
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container>
+  <div
+    class="modal-wrapper"
+    *ngIf="isOpen"
+    style="position: fixed; bottom: 0; width: 90%"
+  >
+    <div>
+      <div class="modal-header">
+        <div class="track-info">
+          <img src="https://via.placeholder.com/50" alt="Track Art" />
+          <div>
+            <div class="track-title">Blacked Out</div>
+            <div class="track-artist">Aria Beats</div>
+          </div>
+        </div>
+        <div class="close-btn" (click)="onBackdropClick($event)">✕</div>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="license-section">
+        <h3>Select License Type</h3>
+        <p>Understand Licensing here!</p>
+        <div class="license-options">
+          <button class="license-btn active">WAV</button>
+          <button class="license-btn">WAV + STEMS</button>
+          <button class="license-btn">EXCLUSIVE</button>
+        </div>
+      </div>
+
+      <div class="details">
+        <div class="row">
+          <span>License Usage <span class="info-icon">ℹ️</span> :</span>
+          <span>Unlimited Audio Streaming</span>
+        </div>
+        <div class="row">
+          <span>Format & Files :</span>
+          <span>WAV File</span>
+        </div>
+        <div class="row">
+          <span>Nature :</span>
+          <span>Non-Exclusive</span>
+        </div>
+        <div class="row">
+          <span>Distribution <span class="info-icon">ℹ️</span> :</span>
+          <span>Unlimited Copies</span>
+        </div>
+        <div class="show-all">Show all</div>
+      </div>
+
+      <div class="price-wrapper">
+        <button class="price-button">🛒 ₹999</button>
+      </div>
+    </div>
+  </div>
+</ng-container>

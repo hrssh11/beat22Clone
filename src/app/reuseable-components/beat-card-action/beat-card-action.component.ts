@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IconComponent } from '../icon/icon.component';
 import { ButtonComponent, ButtonStyle } from '../button/button.component';
 import { ChipsComponent } from '../chips/chips.component';
@@ -22,5 +22,16 @@ export class BeatCardActionComponent {
   @Input() isStarred: boolean = false;
   @Input() isVerified: boolean = false;
 
+  @Output() getSelectRowData = new EventEmitter();
+
   protected buttonStyle = ButtonStyle.PRIMARY;
+
+  getSelectRowDataHandler() {
+    this.getSelectRowData.emit({
+      image: this.image,
+      title: this.title,
+      price: this.price,
+      artist: this.artist,
+    });
+  }
 }

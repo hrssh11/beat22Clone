@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import {
   ButtonComponent,
   ButtonStyle,
@@ -14,6 +20,7 @@ import { ChipsCatgory, FilterList } from './beat22.mock';
 import { FilterSearchDropdownComponent } from '../../reuseable-components/filter-search-dropdown/filter-search-dropdown.component';
 import { BeatCardActionComponent } from '../../reuseable-components/beat-card-action/beat-card-action.component';
 import { ApiService } from '../../service/api.service';
+import { BaseIcon } from 'primeng/baseicon';
 
 @Component({
   selector: 'app-listing-beat',
@@ -26,20 +33,15 @@ import { ApiService } from '../../service/api.service';
     IconComponent,
     FilterSearchDropdownComponent,
     BeatCardActionComponent,
+    BaseIcon,
   ],
   templateUrl: './listing-beat.component.html',
   styleUrl: './listing-beat.component.scss',
 })
 export class ListingBeatComponent implements OnInit {
   loading: boolean = false;
-  constructor(private apiService: ApiService) {}
-
+  @ViewChild('modal') modal!: ElementRef;
   beatsData: any[] = [];
-
-  ngOnInit(): void {
-    this.getBeats();
-  }
-
   protected buttonStyle = ButtonStyle;
   protected chipsStyle = ChipStyle;
   protected selectedIcon: string = 'list';
@@ -50,7 +52,30 @@ export class ListingBeatComponent implements OnInit {
     active?: boolean;
   }[] = ChipsCatgory;
 
+  popUpData: {
+    image: any;
+    title: any;
+    price: any;
+    artist: any;
+  } = {
+    image: undefined,
+    title: undefined,
+    price: undefined,
+    artist: undefined,
+  };
+
+  isOpen: boolean = false;
   protected filterList = FilterList;
+
+  constructor(private apiService: ApiService) {}
+
+  onBackdropClick(event: MouseEvent): void {
+    this.isOpen = false;
+  }
+
+  ngOnInit(): void {
+    this.getBeats();
+  }
 
   setActiveCategory(item: {
     label: string;
@@ -82,5 +107,11 @@ export class ListingBeatComponent implements OnInit {
       .split(' ') // Split into words
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize first letter
       .join(' '); // Join back to string
+  }
+
+  getPopupData(event: any) {
+    this.isOpen = true;
+    console.log(event, 'event');
+    this.popUpData = event;
   }
 }

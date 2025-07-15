@@ -71,7 +71,12 @@
       <beat22-chips [label]="tag"></beat22-chips>
       }
     </div>
-    <beat22-button [iconName]="'shopping-cart'"> ₹{{ price }} </beat22-button>
+    <beat22-button
+      (click)="getSelectRowDataHandler()"
+      [iconName]="'shopping-cart'"
+    >
+      ₹{{ price }}
+    </beat22-button>
     <beat22-icon
       style="cursor: pointer"
       [name]="'dots-vertical'"
