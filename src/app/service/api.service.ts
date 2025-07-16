@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private readonly API_URL =
-    'https://api-server.illpeoplemusic.com/api/v2/playlist/trending';
+  private readonly API_URL = 'https://api-server.illpeoplemusic.com/api/v2';
 
   constructor(private http: HttpClient) {}
 
-  getTrendingPlaylists(): Observable<any> {
-    return this.http.get<any>(this.API_URL);
+  getTrendingPlaylists(pageCount: number): Observable<any> {
+    const url_key = this.API_URL + `/playlist/oneScroll/${pageCount}`;
+    return this.http.get<any>(url_key);
   }
 }

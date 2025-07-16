@@ -3,8 +3,8 @@
 
 body {
   background-color: $body-background;
-  padding-left: 75px;
-  padding-right: 75px;
+  margin-left: 70px;
+  margin-right: 70px;
   font-family: inter-regular, sans-serif !important;
   user-select: none;
   -webkit-user-select: none; /* Safari */
@@ -15,7 +15,7 @@ body {
 @media (max-width: 830px) {
   body {
     width: 100vw;
-    padding-left: 25px;
-    padding-right: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
   }
 }

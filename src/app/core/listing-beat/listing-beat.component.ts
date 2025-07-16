@@ -65,6 +65,7 @@ export class ListingBeatComponent implements OnInit {
   };
 
   isOpen: boolean = false;
+  pageCount: number = 1;
   protected filterList = FilterList;
 
   constructor(private apiService: ApiService) {}
@@ -94,13 +95,28 @@ export class ListingBeatComponent implements OnInit {
 
   getBeats() {
     this.loading = true;
-    this.apiService.getTrendingPlaylists().subscribe((data) => {
-      this.beatsData = data?.playlists[0]?.beats || [];
+    this.apiService.getTrendingPlaylists(this.pageCount).subscribe((data) => {
+      const newBeats = data?.beats || [];
+
+      // Append new data to existing beats
+      this.beatsData = [...this.beatsData, ...newBeats];
+
       this.loading = false;
-      console.log('Beats data length:', this.beatsData);
+
+      // Increase page count for next call
     });
   }
+  onscroll(event: any) {
+    const element = event.target;
 
+    const atBottom =
+      element.scrollHeight - element.scrollTop === element.clientHeight;
+
+    if (atBottom) {
+      this.pageCount++;
+      this.getBeats();
+    }
+  }
   getkey(key: string) {
     return key
       .replace(/_/g, ' ') // Replace underscores with spaces

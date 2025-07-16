@@ -68,7 +68,7 @@
   </div>
 </div>
 
-<div *ngIf="beatsData.length >= 0">
+<div class="onscrol" (scroll)="onscroll($event)" *ngIf="beatsData.length >= 0">
   @for (item of beatsData; track $index) {
 
   <beat22-card-action
@@ -159,10 +159,10 @@
     <div>
       <div class="modal-header">
         <div class="track-info">
-          <img src="https://via.placeholder.com/50" alt="Track Art" />
+          <img [src]="popUpData.image" alt="Track Art" />
           <div>
-            <div class="track-title">Blacked Out</div>
-            <div class="track-artist">Aria Beats</div>
+            <div class="track-title">{{ popUpData.title || "N/A" }}</div>
+            <div class="track-artist">{{ popUpData.artist }}</div>
           </div>
         </div>
         <div class="close-btn" (click)="onBackdropClick($event)">✕</div>
